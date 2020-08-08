@@ -100,9 +100,12 @@
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\ItemMenu.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ManagePositionViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
+    <Compile Include="ViewModels\ManageSectorsViewModel.cs" />
     <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="ViewModels\PasswordConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\PositionFormViewModel.cs" />
     <Compile Include="ViewModels\RegistrationEmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegistrationManagerViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
@@ -136,6 +139,9 @@
     </Compile>
     <Compile Include="Views\PasswordConfirmationView.xaml.cs">
       <DependentUpon>PasswordConfirmationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionFormView.xaml.cs">
+      <DependentUpon>PositionFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrationEmployeeView.xaml.cs">
       <DependentUpon>RegistrationEmployeeView.xaml</DependentUpon>
@@ -198,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PasswordConfirmationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PositionFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

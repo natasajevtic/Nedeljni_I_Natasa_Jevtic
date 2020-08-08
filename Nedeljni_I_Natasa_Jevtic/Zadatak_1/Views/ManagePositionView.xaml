@@ -7,6 +7,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Positions"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                    Grid.Column="1"
+                    Grid.Row ="3">
+            <Button Content="Add" Command="{Binding AddPosition, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="5">
+            <DataGrid ItemsSource="{Binding PositionList,UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="True" HeadersVisibility="Column"  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding PositionName}"/>
+                    <DataGridTextColumn Header="Desription" Binding="{Binding PositionDescription}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>
