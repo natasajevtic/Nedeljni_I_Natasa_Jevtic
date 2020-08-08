@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\RegistrationEmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegistrationManagerViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\SectorFormViewModel.cs" />
     <Compile Include="ViewModels\SubItem.cs" />
     <Compile Include="Views\AdministratorAddFormView.xaml.cs">
       <DependentUpon>AdministratorAddFormView.xaml</DependentUpon>
@@ -151,6 +152,9 @@
     </Compile>
     <Compile Include="Views\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectorFormView.xaml.cs">
+      <DependentUpon>SectorFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlMenuItem.xaml.cs">
       <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
@@ -220,6 +224,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectorFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

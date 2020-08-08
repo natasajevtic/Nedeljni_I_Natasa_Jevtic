@@ -110,6 +110,8 @@ namespace Zadatak_1.Models
                         employee.SectorID = 1;
                         context.SaveChanges();
                     }
+                    context.tblSectors.Remove(sectorToDelete);
+                    context.SaveChanges();
                     return true;
                 }
             }
