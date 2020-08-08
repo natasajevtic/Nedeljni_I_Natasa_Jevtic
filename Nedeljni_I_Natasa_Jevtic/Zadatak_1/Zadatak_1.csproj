@@ -76,6 +76,13 @@
     <Compile Include="Models\Positions.cs" />
     <Compile Include="Models\Sectors.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Validations\EmailValidation.cs" />
+    <Compile Include="Validations\ExpiryDateValidation.cs" />
+    <Compile Include="Validations\JmbgValidation.cs" />
+    <Compile Include="Validations\ManagerPasswordValidation.cs" />
+    <Compile Include="Validations\UniquePosition.cs" />
+    <Compile Include="Validations\UniqueSector.cs" />
+    <Compile Include="Validations\UniqueUsername.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
