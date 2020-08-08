@@ -91,6 +91,7 @@
     <Compile Include="Validations\UniquePosition.cs" />
     <Compile Include="Validations\UniqueSector.cs" />
     <Compile Include="Validations\UniqueUsername.cs" />
+    <Compile Include="Validations\ValidationForEdit.cs" />
     <Compile Include="ViewModels\AdministratorAddFormViewModel.cs" />
     <Compile Include="ViewModels\AdministratorEditFormViewModel.cs" />
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
