@@ -88,6 +88,9 @@
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
+    <Compile Include="ViewModels\PasswordConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationManagerViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,15 @@
     </Compile>
     <Compile Include="Views\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PasswordConfirmationView.xaml.cs">
+      <DependentUpon>PasswordConfirmationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationEmployeeView.xaml.cs">
+      <DependentUpon>RegistrationEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationManagerView.xaml.cs">
+      <DependentUpon>RegistrationManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
@@ -128,6 +140,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MasterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PasswordConfirmationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
