@@ -68,6 +68,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Helper\Encryption.cs" />
     <Compile Include="Models\Administrators.cs" />
+    <Compile Include="Models\EducationDegree.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Genders.cs" />
     <Compile Include="Models\Managers.cs" />
