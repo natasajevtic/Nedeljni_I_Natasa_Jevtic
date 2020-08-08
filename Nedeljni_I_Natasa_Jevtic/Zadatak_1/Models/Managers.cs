@@ -74,7 +74,7 @@ namespace Zadatak_1.Models
                         tblManager newManager = new tblManager
                         {
                             UserId = user.UserId,
-                            BackupPassword = manager.Password + "WPF",
+                            BackupPassword = Encryption.EncryptPassword(manager.Password + "WPF"),
                             Email = manager.Email,
                             LevelOfResponsibility = null,
                             OfficeNumber = manager.OfficeNumber,
