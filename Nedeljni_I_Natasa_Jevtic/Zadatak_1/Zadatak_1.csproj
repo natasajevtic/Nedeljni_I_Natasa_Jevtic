@@ -70,6 +70,7 @@
     <Compile Include="Models\Administrators.cs" />
     <Compile Include="Models\Genders.cs" />
     <Compile Include="Models\MarriageStatus.cs" />
+    <Compile Include="Models\Positions.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Page Include="MainWindow.xaml">
