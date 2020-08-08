@@ -32,7 +32,21 @@ namespace Zadatak_1.Views
                 Menu.Children.Add(new UserControlMenuItem(item1, this));
                 Menu.Children.Add(new UserControlMenuItem(item2, this));
             }
+            else if (administrator.TypeOfAdministrator == "Local")
+            {
+                var menuManager = new List<SubItem>();
+                menuManager.Add(new SubItem("View all managers", new ManageManagersView()));
+                var item1 = new ItemMenu("Managers", menuManager, PackIconKind.PersonBoxOutline);
 
+                var menuEmployee = new List<SubItem>();
+                menuEmployee.Add(new SubItem("View all employees", new ManageEmployeesView()));
+                var item2 = new ItemMenu("Employees", menuEmployee, PackIconKind.PersonBoxOutline);
+                var item0 = new ItemMenu("Dashboard", new UserControl(), PackIconKind.ViewDashboard);
+
+                Menu.Children.Add(new UserControlMenuItem(item0, this));
+                Menu.Children.Add(new UserControlMenuItem(item1, this));
+                Menu.Children.Add(new UserControlMenuItem(item2, this));
+            }
         }
 
         public void SwitchScreen(object sender)

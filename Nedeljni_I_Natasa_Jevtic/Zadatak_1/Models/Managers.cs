@@ -28,7 +28,7 @@ namespace Zadatak_1.Models
             }
         }
         /// <summary>
-        /// This method creates a list of data from view of all managers.
+        /// This method creates a list of data from table of all managers.
         /// </summary>
         /// <returns>List of managers.</returns>
         public List<tblManager> GetAllManagers()
@@ -102,34 +102,26 @@ namespace Zadatak_1.Models
             try
             {
                 using (EmployeeManagementEntities context = new EmployeeManagementEntities())
-                {                    
-                        tblUser user = new tblUser
-                        {
-                            Gender = manager.Gender,
-                            JMBG = manager.JMBG,
-                            Residence = manager.Residence,
-                            MarriageStatus = manager.MarriageStatus,
-                            Name = manager.Name,
-                            Password = Encryption.EncryptPassword(manager.Password),
-                            Surname = manager.Surname,
-                            Username = manager.Username
-                        };
-                        context.tblUsers.Add(user);
-                        context.SaveChanges();
-                        manager.UserId = user.UserId;
-                        tblManager newManager = new tblManager
-                        {
-                            UserId = user.UserId,
-                            BackupPassword = manager.Password + "WPF",
-                            Email = manager.Email,
-                            LevelOfResponsibility = null,
-                            OfficeNumber = manager.OfficeNumber,
-                            Salary = null
-                        };
-                        context.tblManagers.Add(newManager);
-                        context.SaveChanges();
-                        manager.ManagerId = newManager.ManagerId;
-                        return true;                    
+                {
+                    tblManager managerToEdit = context.tblManagers.Where(x => x.ManagerId == manager.ManagerId).FirstOrDefault();
+                    managerToEdit.LevelOfResponsibility = manager.LevelOfResponsibility;
+                    managerToEdit.NumberOfSuccessfulProjects = manager.NumberOfSuccessfulProjects;
+                    managerToEdit.OfficeNumber = manager.OfficeNumber;
+                    managerToEdit.Salary = manager.Salary;
+                    managerToEdit.Email = manager.Email;
+                    managerToEdit.BackupPassword = manager.BackupPassword;
+                    context.SaveChanges();
+                    tblUser userToEdit = context.tblUsers.Where(x => x.UserId == manager.UserId).FirstOrDefault();
+                    userToEdit.Name = manager.Name;
+                    userToEdit.Surname = manager.Surname;
+                    userToEdit.JMBG = manager.JMBG;
+                    userToEdit.Gender = manager.Gender;
+                    userToEdit.Residence = manager.Residence;
+                    userToEdit.MarriageStatus = manager.MarriageStatus;
+                    userToEdit.Username = manager.Username;
+                    userToEdit.Password = manager.Password;
+                    context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -157,6 +149,25 @@ namespace Zadatak_1.Models
             {
                 Debug.WriteLine("Exception" + ex.Message.ToString());
                 return 0;
+            }
+        }
+        /// <summary>
+        /// This method creates a list of data from view of all managers.
+        /// </summary>
+        /// <returns>List of managers.</returns>
+        public List<vwManager> ViewAllManagers()
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    return context.vwManagers.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
             }
         }
     }

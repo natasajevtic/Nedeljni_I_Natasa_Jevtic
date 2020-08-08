@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Zadatak_1.Models;
 
@@ -95,6 +96,36 @@ namespace Zadatak_1.Validations
             {
                 return true;
             }
+        }
+
+        public bool EmailValidation(string email, string oldEmail)
+        {
+            if ( new EmailAddressAttribute().IsValid(email)==true)
+            {
+                Managers managers = new Managers();
+                List<tblManager> managerList = managers.GetAllManagers();
+                if (email != oldEmail)
+                {
+                    var list = managerList.Where(x => x.Email == email).ToList();
+                    //if exists manager with forwarded email, return false
+                    if (list.Count() > 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }            
         }
     }
 }
