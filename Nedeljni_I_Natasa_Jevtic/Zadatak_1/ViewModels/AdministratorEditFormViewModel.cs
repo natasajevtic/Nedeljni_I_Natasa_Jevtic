@@ -164,7 +164,7 @@ namespace Zadatak_1.ViewModels
                && !String.IsNullOrEmpty(Administrator.Residence) && !String.IsNullOrEmpty(Administrator.MarriageStatus) && !String.IsNullOrEmpty(Administrator.Username)
                && !String.IsNullOrEmpty(Administrator.Password) && !String.IsNullOrEmpty(Administrator.AccountExpirationDate.ToString()) && !String.IsNullOrEmpty(Administrator.TypeOfAdministrator)))
             {
-                if (validation.JmbgValidation(Administrator.JMBG, OldAdministrator.JMBG) && validation.UniqueUsername(Administrator.JMBG, OldAdministrator.JMBG))
+                if (validation.JmbgValidation(Administrator.JMBG, OldAdministrator.JMBG) && validation.UniqueUsername(Administrator.Username, OldAdministrator.Username))
                 {
                     return true;
                 }
@@ -183,7 +183,7 @@ namespace Zadatak_1.ViewModels
         {
             try
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel creating the administrator?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel editing the administrator?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
                     administratorFormView.Close();
