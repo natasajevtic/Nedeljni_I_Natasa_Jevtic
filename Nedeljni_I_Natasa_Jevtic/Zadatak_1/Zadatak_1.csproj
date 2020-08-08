@@ -91,6 +91,8 @@
     <Compile Include="Validations\UniquePosition.cs" />
     <Compile Include="Validations\UniqueSector.cs" />
     <Compile Include="Validations\UniqueUsername.cs" />
+    <Compile Include="ViewModels\AdministratorAddFormViewModel.cs" />
+    <Compile Include="ViewModels\AdministratorEditFormViewModel.cs" />
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -104,6 +106,12 @@
     <Compile Include="ViewModels\RegistrationManagerViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\SubItem.cs" />
+    <Compile Include="Views\AdministratorAddFormView.xaml.cs">
+      <DependentUpon>AdministratorAddFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministratorEditFormView.xaml.cs">
+      <DependentUpon>AdministratorEditFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdministratorsView.xaml.cs">
       <DependentUpon>AdministratorsView.xaml</DependentUpon>
     </Compile>
@@ -146,6 +154,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdministratorAddFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdministratorEditFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdministratorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
