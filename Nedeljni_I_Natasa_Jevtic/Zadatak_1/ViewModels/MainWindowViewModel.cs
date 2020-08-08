@@ -98,8 +98,15 @@ namespace Zadatak_1.ViewModels
             else if (users.FindAdministrator(Username, Password) != null)
             {
                 Administrator = users.FindAdministrator(Username, Password);
-                AdministratorView administratorView = new AdministratorView(Administrator);
-                administratorView.ShowDialog();
+                if (DateTime.Now > Administrator.AccountExpirationDate)
+                {
+                    MessageBox.Show("Your account has expired. Please contact the company's management so that they can either create a new account for you or modified the existing one.", "Notification", MessageBoxButton.OK);
+                }
+                else
+                {
+                    AdministratorView administratorView = new AdministratorView(Administrator);
+                    administratorView.ShowDialog();
+                }                
             }
             else if (users.FindManager(Username, Password) != null)
             {
