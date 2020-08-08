@@ -122,8 +122,14 @@
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManagePositionView.xaml.cs">
+      <DependentUpon>ManagePositionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSectorsView.xaml.cs">
+      <DependentUpon>ManageSectorsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MasterView.xaml.cs">
       <DependentUpon>MasterView.xaml</DependentUpon>
@@ -175,7 +181,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ManagePositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageSectorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

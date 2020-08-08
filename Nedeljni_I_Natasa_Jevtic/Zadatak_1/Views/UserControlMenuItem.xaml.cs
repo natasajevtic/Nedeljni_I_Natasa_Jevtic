@@ -23,14 +23,35 @@ namespace Zadatak_1.Views
             ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
 
             this.DataContext = itemMenu;
-        }        
+        }
+
+        public UserControlMenuItem(ItemMenu itemMenu, AdministratorView context)
+        {
+            InitializeComponent();
+            adminContext = context;
+
+            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
+            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
+
+            this.DataContext = itemMenu;
+        }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (mouseClicked)
             {
                 if (e.AddedItems.Count > 0)
-                    _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                {
+                    if (_context != null)
+                    {
+                        _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                    }
+                    else if (adminContext != null)
+                    {
+                        adminContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                    }
+                }
+
             }
 
         }
@@ -40,7 +61,14 @@ namespace Zadatak_1.Views
 
             if (ListViewMenu.SelectedItem != null)
             {
-                _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                if (_context != null)
+                {
+                    _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                }
+                else if (adminContext != null)
+                {
+                    adminContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                }
             }
         }
     }
