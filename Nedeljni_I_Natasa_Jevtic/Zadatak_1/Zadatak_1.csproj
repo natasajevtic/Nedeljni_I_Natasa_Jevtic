@@ -69,6 +69,7 @@
     <Compile Include="Helper\Encryption.cs" />
     <Compile Include="Models\Administrators.cs" />
     <Compile Include="Models\Genders.cs" />
+    <Compile Include="Models\Managers.cs" />
     <Compile Include="Models\MarriageStatus.cs" />
     <Compile Include="Models\Positions.cs" />
     <Compile Include="Models\Sectors.cs" />
