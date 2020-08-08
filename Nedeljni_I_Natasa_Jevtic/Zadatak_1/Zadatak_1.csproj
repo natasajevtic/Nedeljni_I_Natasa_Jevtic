@@ -68,6 +68,8 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Helper\Encryption.cs" />
     <Compile Include="Models\Administrators.cs" />
+    <Compile Include="Models\Genders.cs" />
+    <Compile Include="Models\MarriageStatus.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Page Include="MainWindow.xaml">
