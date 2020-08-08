@@ -33,8 +33,7 @@ namespace Zadatak_1.Models
         /// <param name="administrator">Administrator to be added.</param>
         /// <returns>True if added, false if not.</returns>
         public bool AddAdministrator(vwAdministrator administrator)
-        {
-            Users users = new Users();
+        {           
             try
             {
                 using (EmployeeManagementEntities context = new EmployeeManagementEntities())
@@ -98,7 +97,6 @@ namespace Zadatak_1.Models
                     userToEdit.Password = administrator.Password;
                     context.SaveChanges();
                     return true;
-
                 }
             }
             catch (Exception ex)
