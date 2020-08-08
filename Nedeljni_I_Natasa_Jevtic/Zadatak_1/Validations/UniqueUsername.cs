@@ -19,7 +19,7 @@ namespace Zadatak_1.Validations
             string username = value as string;
             Users users = new Users();
             List<tblUser> userList = users.GetAllUsers();
-            var list = userList.Where(x => x.Username != username).ToList();
+            var list = userList.Where(x => x.Username == username).ToList();
             //if exists employee with forwarded username, return false
             if (list.Count() > 0)
             {
