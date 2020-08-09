@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using Zadatak_1.Commands;
@@ -12,6 +13,21 @@ namespace Zadatak_1.ViewModels
     {
         ManageManagersView managersView;
         Managers managers = new Managers();
+
+        private vwAdministrator administrator;
+
+        public vwAdministrator Administrator
+        {
+            get
+            {
+                return administrator;
+            }
+            set
+            {
+                administrator = value;
+                OnPropertyChanged("Administrator");
+            }
+        }
 
         private vwManager manager;
 
@@ -56,10 +72,24 @@ namespace Zadatak_1.ViewModels
             }
         }
 
-        public ManageManagersViewModel(ManageManagersView managersView)
+        private ICommand deleteManager;
+        public ICommand DeleteManager
+        {
+            get
+            {
+                if (deleteManager == null)
+                {
+                    deleteManager = new RelayCommand(param => DeleteManagerExecute(), param => CanDeleteManagerExecute());
+                }
+                return deleteManager;
+            }
+        }
+
+        public ManageManagersViewModel(ManageManagersView managersView, vwAdministrator administrator)
         {
             this.managersView = managersView;
             ManagerList = managers.ViewAllManagers();
+            Administrator = administrator;
         }        
 
         public void EditManagerExecute()
@@ -68,7 +98,7 @@ namespace Zadatak_1.ViewModels
             {
                 if (Manager != null)
                 {
-                    ManagerEditFormView form = new ManagerEditFormView(Manager);
+                    ManagerEditFormView form = new ManagerEditFormView(Manager, Administrator);
                     form.ShowDialog();
                     ManagerList = managers.ViewAllManagers();
                 }
@@ -80,6 +110,55 @@ namespace Zadatak_1.ViewModels
         }
 
         public bool CanEditManagerExecute()
+        {
+            if (Manager != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void DeleteManagerExecute()
+        {
+            try
+            {
+                if (Manager != null)
+                {
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this manager?", "Confirmation", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        bool isDeleted = managers.DeleteManager(Manager, out List<string> employeeList);
+
+                        if (isDeleted == true)
+                        {
+                            MessageBox.Show("Manager is deleted.", "Notification", MessageBoxButton.OK);
+                            ManagerList = managers.ViewAllManagers();
+                        }
+                        else
+                        {
+                            if (employeeList != null)
+                            {
+                                StringBuilder message = new StringBuilder();
+                                foreach (var employeeData in employeeList)
+                                {
+                                    message.Append(employeeData + "\n");
+                                }
+                                MessageBox.Show($"Manager cannot be deleted. Please first delete employees:\n{message}", "Notification", MessageBoxButton.OK);
+                            }                            
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public bool CanDeleteManagerExecute()
         {
             if (Manager != null)
             {

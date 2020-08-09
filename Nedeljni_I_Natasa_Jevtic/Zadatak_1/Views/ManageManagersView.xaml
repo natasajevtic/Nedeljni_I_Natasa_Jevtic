@@ -28,6 +28,7 @@
                     Grid.Column="1"
                     Grid.Row ="3">
             <Button Content="Edit" Command="{Binding EditManager, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Name="btnDeleteManager" Content="Delete" Command="{Binding DeleteManager, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="5">
             <DataGrid ItemsSource="{Binding ManagerList,UpdateSourceTrigger=PropertyChanged}"

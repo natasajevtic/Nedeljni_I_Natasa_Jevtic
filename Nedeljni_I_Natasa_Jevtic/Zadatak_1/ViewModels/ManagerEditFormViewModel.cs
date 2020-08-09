@@ -20,6 +20,21 @@ namespace Zadatak_1.ViewModels
 
         public vwManager OldManager { get; set; }
 
+        private vwAdministrator administrator;
+
+        public vwAdministrator Administrator
+        {
+            get
+            {
+                return administrator;
+            }
+            set
+            {
+                administrator = value;
+                OnPropertyChanged("Administrator");
+            }
+        }
+
         private vwManager manager;
 
         public vwManager Manager
@@ -106,10 +121,11 @@ namespace Zadatak_1.ViewModels
             }
         }
 
-        public ManagerEditFormViewModel(ManagerEditFormView managerFormView, vwManager managerToEdit)
+        public ManagerEditFormViewModel(ManagerEditFormView managerFormView, vwManager managerToEdit, vwAdministrator loggedAdministrator)
         {
             this.managerFormView = managerFormView;
             Manager = managerToEdit;
+            Administrator = loggedAdministrator;
             GenderList = genders.GetGenders();
             MarriageStatusList = marriageStatus.GetMarriageStatus();
             ResponsibilityList = level.GetLevelsOfResponsibility();
@@ -165,7 +181,7 @@ namespace Zadatak_1.ViewModels
                       &&
                       (!String.IsNullOrEmpty(Manager.Name) && !String.IsNullOrEmpty(Manager.Surname) && !String.IsNullOrEmpty(Manager.JMBG) && !String.IsNullOrEmpty(Manager.Gender)
                && !String.IsNullOrEmpty(Manager.Residence) && !String.IsNullOrEmpty(Manager.MarriageStatus) && !String.IsNullOrEmpty(Manager.Username)
-               && !String.IsNullOrEmpty(Manager.Password) && !String.IsNullOrEmpty(Manager.BackupPassword) && !String.IsNullOrEmpty(Manager.Email) && !String.IsNullOrEmpty(Manager.LevelOfResponsibility)
+               && !String.IsNullOrEmpty(Manager.Password) && !String.IsNullOrEmpty(Manager.BackupPassword) && !String.IsNullOrEmpty(Manager.Email)
                 && Int32.TryParse(Manager.OfficeNumber.ToString(), out int office)))
             {
                 if (validation.JmbgValidation(Manager.JMBG, OldManager.JMBG) && validation.UniqueUsername(Manager.Username, OldManager.Username) &&

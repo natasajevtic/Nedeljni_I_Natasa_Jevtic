@@ -170,5 +170,52 @@ namespace Zadatak_1.Models
                 return null;
             }
         }
+
+        public bool DeleteManager(vwManager manager, out List<string> employeeList)
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    Random r = new Random();
+                    //finding manager to be deleted
+                    tblManager managerToDelete = context.tblManagers.Where(x => x.ManagerId == manager.ManagerId).FirstOrDefault();
+                    //finding employees of this manager
+                    List<tblEmployee> employees = context.tblEmployees.Where(x => x.SuperiorManagerId == managerToDelete.ManagerId).ToList();
+                    List<vwEmployee> viewEmployees = context.vwEmployees.Where(x => x.SuperiorManagerId == managerToDelete.ManagerId).ToList();
+                    //finding other managers and their ids
+                    var remainingManagers = context.tblManagers.Where(x => x.ManagerId != managerToDelete.ManagerId).ToList();
+                    var idOfManagers = remainingManagers.Select(x => x.ManagerId).ToList();                    
+                    //if other managers exist, changing superior managers of employees
+                    if (remainingManagers.Count > 0)
+                    {
+                        foreach (var employee in employees)
+                        {
+                            employee.SuperiorManagerId = idOfManagers[r.Next(0, idOfManagers.Count)];
+                            context.SaveChanges();
+                        }
+                        context.tblManagers.Remove(managerToDelete);
+                        context.SaveChanges();
+                        employeeList = null;
+                        return true;
+                    }
+                    else
+                    {
+                        employeeList = new List<string>(employees.Count);
+                        foreach (var employee in viewEmployees)
+                        {
+                            employeeList.Add("Employee: " + employee.Name + " " + employee.Surname + " JMBG: " + employee.JMBG);
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                employeeList = null;
+                return false;
+            }
+        }
     }
 }

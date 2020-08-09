@@ -9,10 +9,14 @@ namespace Zadatak_1.Views
     /// </summary>
     public partial class ManagerEditFormView : Window
     {
-        public ManagerEditFormView(vwManager manager)
+        public ManagerEditFormView(vwManager manager, vwAdministrator administrator)
         {
             InitializeComponent();
-            this.DataContext = new ManagerEditFormViewModel(this, manager);
+            this.DataContext = new ManagerEditFormViewModel(this, manager, administrator);
+            if (administrator.TypeOfAdministrator == "Team")
+            {
+                cmbResponsibility.IsEnabled = false;
+            }
         }
     }
 }
