@@ -112,13 +112,13 @@
                   Grid.Row="17"
                   DisplayMemberPath="SectorName"
                   ItemsSource="{Binding SectorList, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding Employee.Sector, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Sector, UpdateSourceTrigger=PropertyChanged}"
                   Text="{Binding Employee.SectorName}"/>
         <ComboBox Grid.Column="3" 
                   Grid.Row="19"
                   DisplayMemberPath="PositionName"
                   ItemsSource="{Binding PositionList, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding Employee.Position, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
                   Text="{Binding Employee.PositionName}"/>
         <TextBox Text="{Binding Employee.WorkExperience, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="3"

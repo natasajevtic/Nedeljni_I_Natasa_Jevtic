@@ -46,8 +46,8 @@
                     <DataGridTextColumn Header="Marriage status" Binding="{Binding MarriageStatus}"/>
                     <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
                     <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
-                    <DataGridTextColumn Header="Sector" Binding="{Binding Sector}"/>
-                    <DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
+                    <DataGridTextColumn Header="Sector" Binding="{Binding SectorName}"/>
+                    <DataGridTextColumn Header="Position" Binding="{Binding PositionName}"/>
                     <DataGridTextColumn Header="Work experience" Binding="{Binding WorkExperience}"/>
                     <DataGridTextColumn Header="Salary" Binding="{Binding Salary}"/>
                     <DataGridTextColumn Header="Education degree" Binding="{Binding EducationDegree}"/>                    

@@ -18,6 +18,9 @@ namespace Zadatak_1.ViewModels
         Employees employees = new Employees();
         Genders genders = new Genders();
         MarriageStatus marriageStatus = new MarriageStatus();
+        EducationDegree levels = new EducationDegree();
+        Sectors sectors = new Sectors();
+        Positions positions = new Positions();
         ValidationForEdit validation = new ValidationForEdit();
 
         public vwEmployee OldEmployee { get; set; }
@@ -174,6 +177,9 @@ namespace Zadatak_1.ViewModels
             Employee = employeeToEdit;
             GenderList = genders.GetGenders();
             MarriageStatusList = marriageStatus.GetMarriageStatus();
+            SectorList = sectors.GetAllSectors();
+            PositionList = positions.GetAllPositions();
+            levelPQList = levels.GetEducationDegrees();
             //gets employee initial values before editing
             OldEmployee = new vwEmployee
             {
@@ -186,8 +192,8 @@ namespace Zadatak_1.ViewModels
                 Surname = employeeToEdit.Surname,
                 Username = employeeToEdit.Username,
                 EducationDegree = employeeToEdit.EducationDegree,
-                PositionId = employeeToEdit.PositionId,
-                SectorId = employeeToEdit.SectorId,
+                PositionName = employeeToEdit.PositionName,
+                SectorName = employeeToEdit.SectorName,
                 WorkExperience = employeeToEdit.WorkExperience                
             };
         }
@@ -199,6 +205,11 @@ namespace Zadatak_1.ViewModels
                 MessageBoxResult result = MessageBox.Show("Are you sure you want to save the employee?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
+                    employee.SectorId = Convert.ToInt32(Sector.SectorId);
+                    if (Position != null)
+                    {
+                        employee.PositionId = Convert.ToInt32(Position.PositionId);
+                    }
                     bool isCreated = employees.EditEmployee(Employee);
                     if (isCreated == true)
                     {
@@ -222,7 +233,7 @@ namespace Zadatak_1.ViewModels
             if ((Employee.Name != OldEmployee.Name || Employee.Surname != OldEmployee.Surname || Employee.Gender != OldEmployee.Gender ||
                 Employee.JMBG != OldEmployee.JMBG || Employee.Residence != OldEmployee.Residence || Employee.MarriageStatus != OldEmployee.MarriageStatus || Employee.Username != OldEmployee.Username ||
                 Employee.Password != OldEmployee.Password || Employee.WorkExperience != OldEmployee.WorkExperience || Employee.EducationDegree != OldEmployee.EducationDegree ||
-                Employee.SectorId != OldEmployee.SectorId || Employee.PositionId != OldEmployee.PositionId)
+                Employee.SectorName != OldEmployee.SectorName || Employee.PositionName != OldEmployee.PositionName)
                       &&
                       (!String.IsNullOrEmpty(Employee.Name) && !String.IsNullOrEmpty(Employee.Surname) && !String.IsNullOrEmpty(Employee.JMBG) && !String.IsNullOrEmpty(Employee.Gender)
                && !String.IsNullOrEmpty(Employee.Residence) && !String.IsNullOrEmpty(Employee.MarriageStatus) && !String.IsNullOrEmpty(Employee.Username)
