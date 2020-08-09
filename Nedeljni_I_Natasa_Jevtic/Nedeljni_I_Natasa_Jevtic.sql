@@ -5,6 +5,8 @@ use EmployeeManagement
 --Deleting tables and views, if they exist
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tblProject')
 	drop table tblProject;
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tblRequestForChange')
+	drop table tblRequestForChange;
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tblEmployee')
 	drop table tblEmployee;
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tblManager')
@@ -19,6 +21,8 @@ IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'tblSector
 	drop table tblSector;
 IF EXISTS(select * FROM sys.views where name = 'vwProject')
 	drop view vwProject;
+IF EXISTS(select * FROM sys.views where name = 'vwRequestForChange')
+	drop view vwRequestForChange;
 IF EXISTS(select * FROM sys.views where name = 'vwEmployee')
 	drop view vwEmployee;
 IF EXISTS(select * FROM sys.views where name = 'vwManager')
@@ -80,6 +84,16 @@ Salary numeric(8,2),
 EducationDegree varchar(3) NOT NULL,
 SuperiorManagerId int FOREIGN KEY REFERENCES tblManager(ManagerId)
 );
+create table tblRequestForChange(
+RequestId int identity(1,1)PRIMARY KEY,
+EmployeeId int FOREIGN KEY REFERENCES tblEmployee(EmployeeId) NOT NULL,
+NewSectorId int FOREIGN KEY REFERENCES tblSector(SectorId),
+NewPositionId int FOREIGN KEY REFERENCES tblPosition(PositionId),
+NewWorkExperience int,
+NewEducationDegree varchar(3),
+DateAndTimeOfCreation smalldatetime,
+Status varchar(20)
+);
 create table tblProject(
 ProjectId int identity(1,1) PRIMARY KEY,
 ProjectName varchar(50) NOT NULL,
@@ -114,7 +128,7 @@ ON u.UserId = e.UserId
 INNER JOIN tblSector s
 ON e.SectorID = s.SectorId
 LEFT JOIN tblPosition p
-ON e.PositionId = p.PositionId
+ON e.PositionId = p.PositionId;
 GO
 create view vwManager as
 select u.* , m.ManagerId, m.Email, m.BackupPassword, m.LevelOfResponsibility, m.NumberOfSuccessfulProjects,
@@ -128,6 +142,18 @@ select u.* , a.AdministratorId, a.AccountExpirationDate, a.TypeOfAdministrator
 from tblUser u
 INNER JOIN tblAdministrator a
 ON u.UserId = a.UserId;
+GO 
+create view vwRequestForChange as
+select r.*, e.SectorId, e.PositionId, e.WorkExperience, e.EducationDegree, s.SectorName, p.PositionName , e.SuperiorManagerId, u.Name + ' '+ u.Surname 'Employee'
+from tblRequestForChange r
+INNER JOIN tblEmployee e
+ON e.EmployeeId = r.EmployeeId
+INNER JOIN tblSector s
+ON s.SectorId = e.SectorID
+LEFT JOIN tblPosition p
+ON p.PositionId = e.PositionId
+INNER JOIN tblUser u
+ON u.UserId = e.UserId;
 GO
 create view vwProject as
 select *

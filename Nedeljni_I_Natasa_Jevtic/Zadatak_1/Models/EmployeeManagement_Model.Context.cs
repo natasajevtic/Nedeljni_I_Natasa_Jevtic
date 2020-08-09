@@ -30,6 +30,7 @@ namespace Zadatak_1.Models
         public virtual DbSet<tblManager> tblManagers { get; set; }
         public virtual DbSet<tblPosition> tblPositions { get; set; }
         public virtual DbSet<tblProject> tblProjects { get; set; }
+        public virtual DbSet<tblRequestForChange> tblRequestForChanges { get; set; }
         public virtual DbSet<tblSector> tblSectors { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
         public virtual DbSet<vwAdministrator> vwAdministrators { get; set; }
@@ -37,6 +38,7 @@ namespace Zadatak_1.Models
         public virtual DbSet<vwManager> vwManagers { get; set; }
         public virtual DbSet<vwPosition> vwPositions { get; set; }
         public virtual DbSet<vwProject> vwProjects { get; set; }
+        public virtual DbSet<vwRequestForChange> vwRequestForChanges { get; set; }
         public virtual DbSet<vwSector> vwSectors { get; set; }
     }
 }

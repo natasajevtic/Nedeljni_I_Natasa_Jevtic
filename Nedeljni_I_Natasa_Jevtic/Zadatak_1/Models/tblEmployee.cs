@@ -14,6 +14,12 @@ namespace Zadatak_1.Models
     
     public partial class tblEmployee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblEmployee()
+        {
+            this.tblRequestForChanges = new HashSet<tblRequestForChange>();
+        }
+    
         public int EmployeeId { get; set; }
         public int UserId { get; set; }
         public Nullable<int> SectorID { get; set; }
@@ -27,5 +33,7 @@ namespace Zadatak_1.Models
         public virtual tblSector tblSector { get; set; }
         public virtual tblManager tblManager { get; set; }
         public virtual tblUser tblUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblRequestForChange> tblRequestForChanges { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace Zadatak_1.Models
         public tblPosition()
         {
             this.tblEmployees = new HashSet<tblEmployee>();
+            this.tblRequestForChanges = new HashSet<tblRequestForChange>();
         }
     
         public int PositionId { get; set; }
@@ -26,5 +27,7 @@ namespace Zadatak_1.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblEmployee> tblEmployees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblRequestForChange> tblRequestForChanges { get; set; }
     }
 }
