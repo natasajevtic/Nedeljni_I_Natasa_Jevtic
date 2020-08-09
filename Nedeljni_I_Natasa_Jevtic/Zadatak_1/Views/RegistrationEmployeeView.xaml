@@ -141,7 +141,7 @@
                   Text="{Binding Employee.Sector}"/>
         <ComboBox Grid.Column="3" 
                   Grid.Row="19"
-                  DisplayMemberPath="Position"
+                  DisplayMemberPath="PositionName"
                   ItemsSource="{Binding PositionList, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
                   Text="{Binding Employee.Position}"/>
