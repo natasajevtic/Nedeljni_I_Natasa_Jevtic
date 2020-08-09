@@ -1,0 +1,182 @@
+﻿<Window x:Class="Zadatak_1.Views.RegistrationEmployeeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.Views"
+        xmlns:Validation="clr-namespace:Zadatak_1.Validations"
+        mc:Ignorable="d"
+        Title="Register as employee" MinHeight="500" MinWidth="400" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>            
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Name:"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <Label Content="Surname:"
+               Grid.Column="1"
+               Grid.Row="3"/>
+        <Label Content="JMBG:"
+               Grid.Column="1"
+               Grid.Row="5"/>
+        <Label Content="Gender:"
+               Grid.Column="1"
+               Grid.Row="7"/>
+        <Label Content="Residence:"
+               Grid.Column="1"
+               Grid.Row="9"/>
+        <Label Content="Marriage status:"
+               Grid.Column="1"
+               Grid.Row="11"/>
+        <Label Content="Username:"
+               Grid.Column="1"
+               Grid.Row="13"/>
+        <Label Content="Password:"
+               Grid.Column="1"
+               Grid.Row="15"/>
+        <Label Content="Sector:"
+               Grid.Column="1"
+               Grid.Row="17"/>
+        <Label Content="Position:"
+               Grid.Column="1"
+               Grid.Row="19"/>
+        <Label Content="Work experience:"
+               Grid.Column="1"
+               Grid.Row="21"/>
+        <Label Content="Education degree:"
+               Grid.Column="1"
+               Grid.Row="23"/>
+        <TextBox Text="{Binding Employee.Name, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="1"
+                 Width="200"/>
+        <TextBox Text="{Binding Employee.Surname, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="3"/>
+        <TextBox x:Name="btnJmbg"
+                 Validation.ErrorTemplate="{StaticResource errorTemplate}"            
+                 Grid.Column="3"
+                 Grid.Row="5">
+            <TextBox.Text>
+                <Binding Path="Employee.JMBG"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <Validation:JmbgValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="7"
+                  ItemsSource="{Binding GenderList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.Gender, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.Gender}"/>
+        <TextBox Text="{Binding Employee.Residence, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="9"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="11"
+                  ItemsSource="{Binding MarriageStatusList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.MarriageStatus, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.MarriageStatus}"/>
+        <TextBox x:Name="btnUsername"
+                 Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                 Grid.Column="3"
+                 Grid.Row="13">
+            <TextBox.Text>
+                <Binding Path="Employee.Username"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <Validation:UniqueUsername/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Text="{Binding Employee.Password, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="15"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="17"
+                  DisplayMemberPath="SectorName"
+                  ItemsSource="{Binding SectorList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Sector, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.Sector}"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="19"
+                  DisplayMemberPath="PositionName"
+                  ItemsSource="{Binding PositionList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.Position}"/>
+        <TextBox Text="{Binding Employee.WorkExperience, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="21"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="23"
+                  ItemsSource="{Binding LevelPQList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.EducationDegree, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.EducationDegree}"/>
+        <Button Grid.Column="1" 
+                Grid.Row="25" 
+                Content="Save" 
+                Command="{Binding RegisterEmployee}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnJmbg}" Value="False"/>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnUsername}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Grid.Column="3" 
+                Grid.Row="25" 
+                Content="Cancel" 
+                Command="{Binding CancelEmployee}" 
+                Width="130" 
+                HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,8 +38,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,6 +73,178 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helper\Encryption.cs" />
+    <Compile Include="Models\Administrators.cs" />
+    <Compile Include="Models\EducationDegree.cs" />
+    <Compile Include="Models\EmployeeManagement_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagement_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeManagement_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeManagement_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagement_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Genders.cs" />
+    <Compile Include="Models\LevelsOfResponsibility.cs" />
+    <Compile Include="Models\Managers.cs" />
+    <Compile Include="Models\MarriageStatus.cs" />
+    <Compile Include="Models\Positions.cs" />
+    <Compile Include="Models\RequestsForChange.cs" />
+    <Compile Include="Models\Sectors.cs" />
+    <Compile Include="Models\tblAdministrator.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEmployee.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblManager.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPosition.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProject.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRequestForChange.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSector.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUser.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\vwAdministrator.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwEmployee.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwManager.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwPosition.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwProject.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwRequestForChange.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwSector.cs">
+      <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\EmailValidation.cs" />
+    <Compile Include="Validations\ExpiryDateValidation.cs" />
+    <Compile Include="Validations\JmbgValidation.cs" />
+    <Compile Include="Validations\ManagerPasswordValidation.cs" />
+    <Compile Include="Validations\UniquePosition.cs" />
+    <Compile Include="Validations\UniqueSector.cs" />
+    <Compile Include="Validations\UniqueUsername.cs" />
+    <Compile Include="Validations\ValidationForEdit.cs" />
+    <Compile Include="ViewModels\AdministratorAddFormViewModel.cs" />
+    <Compile Include="ViewModels\AdministratorEditFormViewModel.cs" />
+    <Compile Include="ViewModels\AdministratorsViewModel.cs" />
+    <Compile Include="ViewModels\AdministratorViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeAccountViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeEditFormViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\ItemMenu.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ManageEmployeesViewModel.cs" />
+    <Compile Include="ViewModels\ManageManagersViewModel.cs" />
+    <Compile Include="ViewModels\ManagePositionViewModel.cs" />
+    <Compile Include="ViewModels\ManagerEditFormViewModel.cs" />
+    <Compile Include="ViewModels\ManageRequestsViewModel.cs" />
+    <Compile Include="ViewModels\ManagerViewModel.cs" />
+    <Compile Include="ViewModels\ManageSectorsViewModel.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
+    <Compile Include="ViewModels\PasswordConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\PositionFormViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationManagerViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\SectorFormViewModel.cs" />
+    <Compile Include="ViewModels\SubItem.cs" />
+    <Compile Include="Views\AdministratorAddFormView.xaml.cs">
+      <DependentUpon>AdministratorAddFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministratorEditFormView.xaml.cs">
+      <DependentUpon>AdministratorEditFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministratorsView.xaml.cs">
+      <DependentUpon>AdministratorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministratorView.xaml.cs">
+      <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeAccountView.xaml.cs">
+      <DependentUpon>EmployeeAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeEditFormView.xaml.cs">
+      <DependentUpon>EmployeeEditFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageEmployeesView.xaml.cs">
+      <DependentUpon>ManageEmployeesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageManagersView.xaml.cs">
+      <DependentUpon>ManageManagersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagePositionView.xaml.cs">
+      <DependentUpon>ManagePositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerEditFormView.xaml.cs">
+      <DependentUpon>ManagerEditFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageRequestsView.xaml.cs">
+      <DependentUpon>ManageRequestsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerView.xaml.cs">
+      <DependentUpon>ManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSectorsView.xaml.cs">
+      <DependentUpon>ManageSectorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterView.xaml.cs">
+      <DependentUpon>MasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PasswordConfirmationView.xaml.cs">
+      <DependentUpon>PasswordConfirmationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionFormView.xaml.cs">
+      <DependentUpon>PositionFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationEmployeeView.xaml.cs">
+      <DependentUpon>RegistrationEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationManagerView.xaml.cs">
+      <DependentUpon>RegistrationManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationView.xaml.cs">
+      <DependentUpon>RegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectorFormView.xaml.cs">
+      <DependentUpon>SectorFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControlMenuItem.xaml.cs">
+      <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +257,94 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdministratorAddFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdministratorEditFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdministratorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeAccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeEditFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageEmployeesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageManagersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagePositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerEditFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageRequestsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageSectorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MasterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PasswordConfirmationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PositionFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectorFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,6 +364,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\EmployeeManagement_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeManagement_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\EmployeeManagement_Model.edmx.diagram">
+      <DependentUpon>EmployeeManagement_Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,5 +380,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\EmployeeManagement_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagement_Model.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagement_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EmployeeManagement_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagement_Model.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagement_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets'))" />
+  </Target>
 </Project>

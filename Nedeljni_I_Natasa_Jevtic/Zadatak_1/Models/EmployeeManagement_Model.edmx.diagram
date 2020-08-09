@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5448977133c94efb8d1cd88757e848b0" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblAdministrator" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblEmployee" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblManager" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblPosition" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblProject" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblRequestForChange" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblSector" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblUser" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwAdministrator" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwEmployee" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwManager" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwPosition" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwProject" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwRequestForChange" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.vwSector" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblAdmini__UserI__65AC084E" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Posit__74EE4BDE" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Secto__73FA27A5" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Super__76D69450" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__UserI__7306036C" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblReques__Emplo__7B9B496D" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblManage__UserI__6D4D2A16" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Contr__024846FC" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Leade__033C6B35" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblReques__NewPo__7D8391DF" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblReques__NewSe__7C8F6DA6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

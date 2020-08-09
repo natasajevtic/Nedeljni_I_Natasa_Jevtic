@@ -1,0 +1,77 @@
+﻿<Window x:Class="Zadatak_1.Views.PositionFormView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.Views"
+         xmlns:Validation="clr-namespace:Zadatak_1.Validations"
+        mc:Ignorable="d"
+        Title="Add position" MinHeight="200" MinWidth="200" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Name:"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <Label Content="Description:"
+               Grid.Column="1"
+               Grid.Row="3"/>
+        <TextBox Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                 Grid.Column="3"
+                 Grid.Row="1"
+                 Name="btnPositionName">
+            <TextBox.Text>
+                <Binding Path="Position.PositionName"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <Validation:UniquePosition/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Text="{Binding Position.PositionDescription, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="3"
+                 Width="200"/>
+        <Button Grid.Column="1" 
+                Grid.Row="5" 
+                Content="Save" 
+                Command="{Binding SavePosition}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnPositionName}" Value="False"/>                                
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>        
+        <Button Grid.Column="3" 
+                Grid.Row="5" 
+                Content="Cancel" 
+                Command="{Binding CancelPosition}" 
+                Width="130" 
+                HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
