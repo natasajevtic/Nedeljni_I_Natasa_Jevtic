@@ -100,7 +100,7 @@ namespace Zadatak_1.ViewModels
         {
             if (String.IsNullOrEmpty(Manager.Name) || String.IsNullOrEmpty(Manager.Surname) || String.IsNullOrEmpty(Manager.JMBG) || String.IsNullOrEmpty(Manager.Gender)
                || String.IsNullOrEmpty(Manager.Residence) || String.IsNullOrEmpty(Manager.MarriageStatus) || String.IsNullOrEmpty(Manager.Username)
-               || String.IsNullOrEmpty(Manager.Password) || !Int32.TryParse(Manager.OfficeNumber.ToString(), out int office) || String.IsNullOrEmpty(Manager.Email))
+               || String.IsNullOrEmpty(Manager.Password) || String.IsNullOrEmpty(Manager.BackupPassword) || !Int32.TryParse(Manager.OfficeNumber.ToString(), out int office) || String.IsNullOrEmpty(Manager.Email))
             {
                 MessageBox.Show("Please fill all fields.", "Notification");
             }

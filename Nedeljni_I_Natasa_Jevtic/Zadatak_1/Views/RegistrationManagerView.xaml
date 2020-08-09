@@ -38,6 +38,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="18"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Content="Name:"
@@ -64,12 +66,15 @@
         <Label Content="Password:"
                Grid.Column="1"
                Grid.Row="15"/>
-        <Label Content="E-mail:"
+        <Label Content="Password hint:"
                Grid.Column="1"
                Grid.Row="17"/>
-        <Label Content="Office number:"
+        <Label Content="E-mail:"
                Grid.Column="1"
                Grid.Row="19"/>
+        <Label Content="Office number:"
+               Grid.Column="1"
+               Grid.Row="21"/>
         <TextBox Text="{Binding Manager.Name, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="3"
                  Grid.Row="1"
@@ -120,12 +125,15 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="btnPassword"
+        <TextBox Text="{Binding Manager.Password, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="15"/>        
+        <TextBox x:Name="btnBackupPassword"
                  Validation.ErrorTemplate="{StaticResource errorTemplate}"
                  Grid.Column="3"
-                 Grid.Row="15">
+                 Grid.Row="17">
             <TextBox.Text>
-                <Binding Path="Manager.Password"
+                <Binding Path="Manager.BackupPassword"
                          UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnDataErrors="True"
                          NotifyOnValidationError="True">
@@ -138,7 +146,7 @@
         <TextBox x:Name="btnEmail"
                  Validation.ErrorTemplate="{StaticResource errorTemplate}"
                  Grid.Column="3"
-                 Grid.Row="17">
+                 Grid.Row="19">
             <TextBox.Text>
                 <Binding Path="Manager.Email"
                          UpdateSourceTrigger="PropertyChanged"
@@ -152,9 +160,9 @@
         </TextBox>
         <TextBox Text="{Binding Manager.OfficeNumber, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="3"
-                 Grid.Row="19"/>
+                 Grid.Row="21"/>
         <Button Grid.Column="1" 
-                Grid.Row="21" 
+                Grid.Row="23" 
                 Content="Save" 
                 Command="{Binding RegisterManager}">
             <Button.Style>
@@ -166,7 +174,7 @@
                                 <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnJmbg}" Value="False"/>
                                 <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnUsername}" Value="False"/>
                                 <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnEmail}" Value="False"/>
-                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnPassword}" Value="False"/>
+                                <Condition Binding="{Binding Path=(Validation.HasError), ElementName=btnBackupPassword}" Value="False"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="IsEnabled" Value="True"/>
                         </MultiDataTrigger>
@@ -175,7 +183,7 @@
             </Button.Style>
         </Button>
         <Button Grid.Column="3" 
-                Grid.Row="21" 
+                Grid.Row="23" 
                 Content="Cancel" 
                 Command="{Binding CancelManager}"
                 Width="130" 
