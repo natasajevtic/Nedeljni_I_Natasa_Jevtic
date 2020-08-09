@@ -22,7 +22,7 @@ namespace Zadatak_1.Views
 
             var menuRequest = new List<SubItem>();
             menuRequest.Add(new SubItem("View all requests", new ManageRequestsView(employee)));
-            var item2 = new ItemMenu("Requests", menuRequest, PackIconKind.PersonBoxOutline);
+            var item2 = new ItemMenu("My requests", menuRequest, PackIconKind.PersonBoxOutline);
             var item0 = new ItemMenu("Dashboard", new UserControl(), PackIconKind.ViewDashboard);
 
             Menu.Children.Add(new UserControlMenuItem(item0, this));
@@ -35,18 +35,7 @@ namespace Zadatak_1.Views
             if (screen != null)
             {
                 StackPanelMain.Children.Clear();
-                StackPanelMain.Children.Add(screen);
-
-                //if (screen.Name == "Sectors")
-                //{
-                //    ManageSectorsView sectorsView = new ManageSectorsView();
-                //}
-                //else if (screen.Name == "Positions")
-                //{
-                //    ManagePositionView positionView = new ManagePositionView();
-                //    StackPanelMain.Children.Clear();
-                //    StackPanelMain.Children.Add(positionView);
-                //}
+                StackPanelMain.Children.Add(screen);                
             }
         }
     }

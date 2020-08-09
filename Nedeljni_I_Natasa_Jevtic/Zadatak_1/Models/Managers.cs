@@ -217,5 +217,53 @@ namespace Zadatak_1.Models
                 return false;
             }
         }
+
+        public bool CheckIfManagerHasEmployees(vwManager manager)
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    var employees = context.tblEmployees.Where(x => x.SuperiorManagerId == manager.ManagerId).ToList();
+                    if (employees.Count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
+
+        public bool CheckIfManagerHasRequest(vwManager manager)
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    var requests = context.vwRequestForChanges.Where(x => x.SuperiorManagerId == manager.ManagerId && x.Status == "on hold").ToList();
+                    if (requests.Count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }

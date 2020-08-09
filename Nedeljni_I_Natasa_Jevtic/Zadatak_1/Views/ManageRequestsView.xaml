@@ -7,6 +7,51 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Requests"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                    Grid.Column="1"
+                    Grid.Row ="3">
+            <Button x:Name="btnApprove" Content="Approve" Command="{Binding ApproveRequest, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0"/>
+            <Button x:Name="btnReject" Content="Reject" Command="{Binding RejectRequest, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0"/>
+            <Button Content="Delete" Command="{Binding DeleteRequest, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="5">
+            <DataGrid ItemsSource="{Binding RequestList,UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding Request, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="True" HeadersVisibility="Column"  AutoGenerateColumns="False"
+                ScrollViewer.CanContentScroll="True" 
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Employee" Binding="{Binding Employee}"/>
+                    <DataGridTextColumn Header="Date and time" Binding="{Binding DateAndTimeOfCreation}"/>
+                    <DataGridTextColumn Header="Sector" Binding="{Binding SectorId}"/>
+                    <DataGridTextColumn Header="New sector" Binding="{Binding NewSectorId}"/>
+                    <DataGridTextColumn Header="Position" Binding="{Binding PositionId}"/>
+                    <DataGridTextColumn Header="New position" Binding="{Binding NewPositionId}"/>
+                    <DataGridTextColumn Header="Work experience" Binding="{Binding WorkExperience}"/>
+                    <DataGridTextColumn Header="New work experience" Binding="{Binding NewWorkExperience}"/>
+                    <DataGridTextColumn Header="Education degree" Binding="{Binding EducationDegree}"/>
+                    <DataGridTextColumn Header="New education degree" Binding="{Binding NewEducationDegree}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>

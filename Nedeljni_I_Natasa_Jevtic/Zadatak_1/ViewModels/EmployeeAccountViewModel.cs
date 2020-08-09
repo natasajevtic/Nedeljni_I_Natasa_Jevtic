@@ -235,14 +235,17 @@ namespace Zadatak_1.ViewModels
                             {
                                 employee.PositionId = Convert.ToInt32(Position.PositionId);
                             }
-                            bool isCreated = requests.AddRequest(Employee);
-                            if (isCreated == true)
+                            if (employees.EditUser(Employee) == true)
                             {
-                                MessageBox.Show("Request for changes sent. Please wait to be approved.", "Notification", MessageBoxButton.OK);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Request for changes cannot be sent.", "Notification", MessageBoxButton.OK);
+                                bool isCreated = requests.AddRequest(Employee);
+                                if (isCreated == true)
+                                {
+                                    MessageBox.Show("Request for changes sent. Please wait to be approved.", "Notification", MessageBoxButton.OK);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Request for changes cannot be sent.", "Notification", MessageBoxButton.OK);
+                                }
                             }
                         }
                     }

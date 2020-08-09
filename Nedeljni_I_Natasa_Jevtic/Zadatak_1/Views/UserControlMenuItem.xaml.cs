@@ -78,7 +78,11 @@ namespace Zadatak_1.Views
                     else if (employeeContext != null)
                     {
                         employeeContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
-                    }                    
+                    }
+                    else if (managerContext != null)
+                    {
+                        managerContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                    }
                 }
             }
         }
@@ -99,7 +103,11 @@ namespace Zadatak_1.Views
                 else if (employeeContext != null)
                 {
                     employeeContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
-                }                
+                }
+                else if (managerContext != null)
+                {
+                    managerContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                }
             }
         }
     }

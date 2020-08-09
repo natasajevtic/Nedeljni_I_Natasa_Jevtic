@@ -183,5 +183,31 @@ namespace Zadatak_1.Models
                 return false;
             }
         }
+
+        public bool EditUser(vwEmployee employee)
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    tblUser userToEdit = context.tblUsers.Where(x => x.UserId == employee.UserId).FirstOrDefault();
+                    userToEdit.Name = employee.Name;
+                    userToEdit.Surname = employee.Surname;
+                    userToEdit.JMBG = employee.JMBG;
+                    userToEdit.Gender = employee.Gender;
+                    userToEdit.Residence = employee.Residence;
+                    userToEdit.MarriageStatus = employee.MarriageStatus;
+                    userToEdit.Username = employee.Username;
+                    userToEdit.Password = employee.Password;
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }
