@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="Zadatak_1.Views.EmployeeAccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Zadatak_1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Name:"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <Label Content="Surname:"
+               Grid.Column="1"
+               Grid.Row="3"/>
+        <Label Content="JMBG:"
+               Grid.Column="1"
+               Grid.Row="5"/>
+        <Label Content="Gender:"
+               Grid.Column="1"
+               Grid.Row="7"/>
+        <Label Content="Residence:"
+               Grid.Column="1"
+               Grid.Row="9"/>
+        <Label Content="Marriage status:"
+               Grid.Column="1"
+               Grid.Row="11"/>
+        <Label Content="Username:"
+               Grid.Column="1"
+               Grid.Row="13"/>
+        <Label Content="Password:"
+               Grid.Column="1"
+               Grid.Row="15"/>
+        <Label Content="Sector:"
+               Grid.Column="5"
+               Grid.Row="1"/>
+        <Label Content="Position:"
+               Grid.Column="5"
+               Grid.Row="3"/>
+        <Label Content="Work experience:"
+               Grid.Column="5"
+               Grid.Row="5"/>
+        <Label Content="Education degree:"
+               Grid.Column="5"
+               Grid.Row="7"/>
+        <Label Content="Salary:"
+               Grid.Column="5"
+               Grid.Row="9"/>
+        <Label Content="Manager:"
+               Grid.Column="5"
+               Grid.Row="11"
+               IsEnabled="False"/>
+        <TextBox Text="{Binding Employee.Name, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="1"
+                 Width="200"/>
+        <TextBox Text="{Binding Employee.Surname, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="3"/>
+        <TextBox Text="{Binding Employee.JMBG, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="5"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="7"
+                  ItemsSource="{Binding GenderList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.Gender, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.Gender}"/>
+        <TextBox Text="{Binding Employee.Residence, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="9"/>
+        <ComboBox Grid.Column="3" 
+                  Grid.Row="11"
+                  ItemsSource="{Binding MarriageStatusList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.MarriageStatus, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.MarriageStatus}"/>
+        <TextBox Text="{Binding Employee.Username, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="13"/>
+        <TextBox Text="{Binding Employee.Password, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="3"
+                 Grid.Row="15"/>
+        <ComboBox Grid.Column="7" 
+                  Grid.Row="1"
+                  DisplayMemberPath="SectorName"
+                  ItemsSource="{Binding SectorList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Sector, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.SectorName}"/>
+        <ComboBox Grid.Column="7" 
+                  Grid.Row="3"
+                  DisplayMemberPath="PositionName"
+                  ItemsSource="{Binding PositionList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.PositionName}"/>
+        <TextBox Text="{Binding Employee.WorkExperience, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="7"
+                 Grid.Row="5"/>
+        <ComboBox Grid.Column="7" 
+                  Grid.Row="7"
+                  ItemsSource="{Binding LevelPQList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Employee.EducationDegree, UpdateSourceTrigger=PropertyChanged}"
+                  Text="{Binding Employee.EducationDegree}"/>
+        <TextBox Text="{Binding Employee.Salary, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="7"
+                 Grid.Row="9"
+                 IsEnabled="False"/>
+        <TextBox Text="{Binding Manager, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Column="7"
+                 Grid.Row="11"
+                 IsEnabled="False"/>
+        <Button Grid.Column="7" 
+                Grid.Row="17"
+                Content="Save" 
+                Command="{Binding SaveEmployee}" 
+                Width="130" 
+                HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

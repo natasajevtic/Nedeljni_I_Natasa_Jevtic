@@ -123,6 +123,7 @@ namespace Zadatak_1.ViewModels
             }
             else if (users.FindEmployee(Username, Password) != null)
             {
+                Employee = users.FindEmployee(Username, Password);
                 EmployeeView employeeView = new EmployeeView(Employee);
                 employeeView.ShowDialog();
             }

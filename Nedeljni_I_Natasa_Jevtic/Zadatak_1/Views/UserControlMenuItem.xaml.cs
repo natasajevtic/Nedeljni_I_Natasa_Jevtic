@@ -12,6 +12,9 @@ namespace Zadatak_1.Views
     {
         MasterView _context;
         AdministratorView adminContext;
+        EmployeeView employeeContext;
+        ManagerView managerContext;
+
         private bool mouseClicked;
 
         public UserControlMenuItem(ItemMenu itemMenu, MasterView context)
@@ -36,6 +39,28 @@ namespace Zadatak_1.Views
             this.DataContext = itemMenu;
         }
 
+        public UserControlMenuItem(ItemMenu itemMenu, EmployeeView employeeContext)
+        {
+            InitializeComponent();
+            this.employeeContext = employeeContext;
+
+            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
+            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
+
+            this.DataContext = itemMenu;
+        }
+
+        public UserControlMenuItem(ItemMenu itemMenu, ManagerView managerContext)
+        {
+            InitializeComponent();
+            this.managerContext = managerContext;
+
+            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
+            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
+
+            this.DataContext = itemMenu;
+        }
+
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (mouseClicked)
@@ -50,10 +75,12 @@ namespace Zadatak_1.Views
                     {
                         adminContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
                     }
+                    else if (employeeContext != null)
+                    {
+                        employeeContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                    }                    
                 }
-
             }
-
         }
         private void ListViewMenu_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -69,6 +96,10 @@ namespace Zadatak_1.Views
                 {
                     adminContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
                 }
+                else if (employeeContext != null)
+                {
+                    employeeContext.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+                }                
             }
         }
     }

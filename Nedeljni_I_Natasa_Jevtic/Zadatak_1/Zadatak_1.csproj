@@ -98,6 +98,7 @@
     <Compile Include="Models\Managers.cs" />
     <Compile Include="Models\MarriageStatus.cs" />
     <Compile Include="Models\Positions.cs" />
+    <Compile Include="Models\RequestsForChange.cs" />
     <Compile Include="Models\Sectors.cs" />
     <Compile Include="Models\tblAdministrator.cs">
       <DependentUpon>EmployeeManagement_Model.tt</DependentUpon>
@@ -158,6 +159,7 @@
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeAccountViewModel.cs" />
     <Compile Include="ViewModels\EmployeeEditFormViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\ItemMenu.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="ViewModels\ManageManagersViewModel.cs" />
     <Compile Include="ViewModels\ManagePositionViewModel.cs" />
     <Compile Include="ViewModels\ManagerEditFormViewModel.cs" />
+    <Compile Include="ViewModels\ManageRequestsViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
     <Compile Include="ViewModels\ManageSectorsViewModel.cs" />
     <Compile Include="ViewModels\MasterViewModel.cs" />
@@ -188,6 +191,9 @@
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmployeeAccountView.xaml.cs">
+      <DependentUpon>EmployeeAccountView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeEditFormView.xaml.cs">
       <DependentUpon>EmployeeEditFormView.xaml</DependentUpon>
     </Compile>
@@ -205,6 +211,9 @@
     </Compile>
     <Compile Include="Views\ManagerEditFormView.xaml.cs">
       <DependentUpon>ManagerEditFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageRequestsView.xaml.cs">
+      <DependentUpon>ManageRequestsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
@@ -264,6 +273,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EmployeeAccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EmployeeEditFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ManagerEditFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManageRequestsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
