@@ -7,6 +7,52 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Content="Employees"
+               Grid.Column="1"
+               Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                    Grid.Column="1"
+                    Grid.Row ="3">
+            <Button Content="Edit" Command="{Binding EditEmployee, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0"/>
+            <Button Content="Delete" Command="{Binding DeleteEmployee, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="5">
+            <DataGrid ItemsSource="{Binding EmployeeList,UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding Employee, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="True" HeadersVisibility="Column"  AutoGenerateColumns="False"
+                ScrollViewer.CanContentScroll="True" 
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
+                    <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}"/>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="Location" Binding="{Binding Residence}"/>
+                    <DataGridTextColumn Header="Marriage status" Binding="{Binding MarriageStatus}"/>
+                    <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                    <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                    <DataGridTextColumn Header="Sector" Binding="{Binding Sector}"/>
+                    <DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
+                    <DataGridTextColumn Header="Work experience" Binding="{Binding WorkExperience}"/>
+                    <DataGridTextColumn Header="Salary" Binding="{Binding Salary}"/>
+                    <DataGridTextColumn Header="Education degree" Binding="{Binding EducationDegree}"/>                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>

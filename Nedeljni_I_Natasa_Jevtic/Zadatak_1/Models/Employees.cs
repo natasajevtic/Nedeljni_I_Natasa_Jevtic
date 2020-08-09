@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Zadatak_1.Helper;
@@ -83,6 +84,53 @@ namespace Zadatak_1.Models
                     userToEdit.MarriageStatus = employee.MarriageStatus;
                     userToEdit.Username = employee.Username;
                     userToEdit.Password = employee.Password;
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return false;
+            }
+        }
+        /// <summary>
+        /// This method creates a list of data from view of all employees.
+        /// </summary>
+        /// <returns>List of employees.</returns>
+        public List<vwEmployee> ViewAllEmployees()
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    return context.vwEmployees.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// This method deletes a employee.
+        /// </summary>
+        /// <param name="employee">Employee to be deleted.</param>
+        /// <returns>True if deleted, false if not.</returns>
+        public bool DeleteEmployee(vwEmployee employee)
+        {
+            try
+            {
+                using (EmployeeManagementEntities context = new EmployeeManagementEntities())
+                {
+                    //finding employee to be deleted
+                    tblEmployee employeeToDelete = context.tblEmployees.Where(x => x.EmployeeId == employee.EmployeeId).FirstOrDefault();
+                    //finding user to be deleted
+                    tblUser userToDelete = context.tblUsers.Where(x => x.UserId == employee.UserId).FirstOrDefault(); 
+                    context.tblEmployees.Remove(employeeToDelete);
+                    context.SaveChanges();
+                    context.tblUsers.Remove(userToDelete);
                     context.SaveChanges();
                     return true;
                 }
