@@ -14,7 +14,7 @@ namespace Zadatak_1.Views
         public MasterView()
         {
             InitializeComponent();            
-            this.DataContext = new MasterViewModel();
+            this.DataContext = new MasterViewModel(this);
 
             var menuAdministrator = new List<SubItem>();
             menuAdministrator.Add(new SubItem("View all administrators", new AdministratorsView()));
