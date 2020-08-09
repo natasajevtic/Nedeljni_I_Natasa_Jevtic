@@ -113,8 +113,8 @@ INNER JOIN tblEmployee e
 ON u.UserId = e.UserId
 INNER JOIN tblSector s
 ON e.SectorID = s.SectorId
-INNER JOIN tblPosition p
-ON p.PositionId = p.PositionId
+LEFT JOIN tblPosition p
+ON e.PositionId = p.PositionId
 GO
 create view vwManager as
 select u.* , m.ManagerId, m.Email, m.BackupPassword, m.LevelOfResponsibility, m.NumberOfSuccessfulProjects,

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7a0433b3d5e94cc9bc18149cb9b7fdda" Name="Diagram1">
+      <Diagram DiagramId="8cf1c006c6b044858e274b09e45458d7" Name="Diagram1">
         <EntityTypeShape EntityType="EmployeeManagementModel.tblAdministrator" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EmployeeManagementModel.tblEmployee" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EmployeeManagementModel.tblManager" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
@@ -18,14 +18,14 @@
         <EntityTypeShape EntityType="EmployeeManagementModel.vwPosition" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EmployeeManagementModel.vwProject" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EmployeeManagementModel.vwSector" Width="1.5" PointX="9.75" PointY="7.875" IsExpanded="true" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblAdmini__UserI__12E8C319" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Posit__222B06A9" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Secto__2136E270" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Super__24134F1B" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__UserI__2042BE37" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblManage__UserI__1A89E4E1" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Contr__28D80438" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Leade__29CC2871" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblAdmini__UserI__597B3B93" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Posit__68BD7F23" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Secto__67C95AEA" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__Super__6AA5C795" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblEmploy__UserI__66D536B1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblManage__UserI__611C5D5B" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Contr__6F6A7CB2" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__tblProjec__Leade__705EA0EB" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -131,8 +131,6 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwEmployee' does not have a
             <PropertyRef Name="Password" />
             <PropertyRef Name="EmployeeId" />
             <PropertyRef Name="EducationDegree" />
-            <PropertyRef Name="PositionName" />
-            <PropertyRef Name="PositionDescription" />
             <PropertyRef Name="SectorName" />
             <PropertyRef Name="SectorId" />
           </Key>
@@ -150,8 +148,8 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwEmployee' does not have a
           <Property Name="EducationDegree" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="Salary" Type="numeric" Precision="8" Scale="2" />
           <Property Name="WorkExperience" Type="int" />
-          <Property Name="PositionName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="PositionDescription" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PositionName" Type="varchar" MaxLength="100" />
+          <Property Name="PositionDescription" Type="varchar" MaxLength="255" />
           <Property Name="SectorName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="SectorDescription" Type="varchar" MaxLength="255" />
           <Property Name="SectorId" Type="int" Nullable="false" />
@@ -242,7 +240,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="SectorName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="SectorDescription" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK__tblAdmini__UserI__12E8C319">
+        <Association Name="FK__tblAdmini__UserI__597B3B93">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblAdministrator" Type="Self.tblAdministrator" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +252,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Posit__222B06A9">
+        <Association Name="FK__tblEmploy__Posit__68BD7F23">
           <End Role="tblPosition" Type="Self.tblPosition" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -266,7 +264,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Secto__2136E270">
+        <Association Name="FK__tblEmploy__Secto__67C95AEA">
           <End Role="tblSector" Type="Self.tblSector" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -278,7 +276,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Super__24134F1B">
+        <Association Name="FK__tblEmploy__Super__6AA5C795">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -290,7 +288,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__UserI__2042BE37">
+        <Association Name="FK__tblEmploy__UserI__66D536B1">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -302,7 +300,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblManage__UserI__1A89E4E1">
+        <Association Name="FK__tblManage__UserI__611C5D5B">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -314,7 +312,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjec__Contr__28D80438">
+        <Association Name="FK__tblProjec__Contr__6F6A7CB2">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -326,7 +324,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjec__Leade__29CC2871">
+        <Association Name="FK__tblProjec__Leade__705EA0EB">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -435,35 +433,35 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
     [vwSector].[SectorDescription] AS [SectorDescription]
     FROM [dbo].[vwSector] AS [vwSector]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__tblAdmini__UserI__12E8C319" Association="Self.FK__tblAdmini__UserI__12E8C319">
+          <AssociationSet Name="FK__tblAdmini__UserI__597B3B93" Association="Self.FK__tblAdmini__UserI__597B3B93">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblAdministrator" EntitySet="tblAdministrator" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Posit__222B06A9" Association="Self.FK__tblEmploy__Posit__222B06A9">
+          <AssociationSet Name="FK__tblEmploy__Posit__68BD7F23" Association="Self.FK__tblEmploy__Posit__68BD7F23">
             <End Role="tblPosition" EntitySet="tblPosition" />
             <End Role="tblEmployee" EntitySet="tblEmployee" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Secto__2136E270" Association="Self.FK__tblEmploy__Secto__2136E270">
+          <AssociationSet Name="FK__tblEmploy__Secto__67C95AEA" Association="Self.FK__tblEmploy__Secto__67C95AEA">
             <End Role="tblSector" EntitySet="tblSector" />
             <End Role="tblEmployee" EntitySet="tblEmployee" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Super__24134F1B" Association="Self.FK__tblEmploy__Super__24134F1B">
+          <AssociationSet Name="FK__tblEmploy__Super__6AA5C795" Association="Self.FK__tblEmploy__Super__6AA5C795">
             <End Role="tblManager" EntitySet="tblManager" />
             <End Role="tblEmployee" EntitySet="tblEmployee" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__UserI__2042BE37" Association="Self.FK__tblEmploy__UserI__2042BE37">
+          <AssociationSet Name="FK__tblEmploy__UserI__66D536B1" Association="Self.FK__tblEmploy__UserI__66D536B1">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblEmployee" EntitySet="tblEmployee" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblManage__UserI__1A89E4E1" Association="Self.FK__tblManage__UserI__1A89E4E1">
+          <AssociationSet Name="FK__tblManage__UserI__611C5D5B" Association="Self.FK__tblManage__UserI__611C5D5B">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblManager" EntitySet="tblManager" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjec__Contr__28D80438" Association="Self.FK__tblProjec__Contr__28D80438">
+          <AssociationSet Name="FK__tblProjec__Contr__6F6A7CB2" Association="Self.FK__tblProjec__Contr__6F6A7CB2">
             <End Role="tblManager" EntitySet="tblManager" />
             <End Role="tblProject" EntitySet="tblProject" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjec__Leade__29CC2871" Association="Self.FK__tblProjec__Leade__29CC2871">
+          <AssociationSet Name="FK__tblProjec__Leade__705EA0EB" Association="Self.FK__tblProjec__Leade__705EA0EB">
             <End Role="tblManager" EntitySet="tblManager" />
             <End Role="tblProject" EntitySet="tblProject" />
           </AssociationSet>
@@ -481,7 +479,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="AccountExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TypeOfAdministrator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblAdmini__UserI__12E8C319" FromRole="tblAdministrator" ToRole="tblUser" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblAdmini__UserI__597B3B93" FromRole="tblAdministrator" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblEmployee">
           <Key>
@@ -495,10 +493,10 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="Salary" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SuperiorManagerId" Type="Int32" />
-          <NavigationProperty Name="tblPosition" Relationship="Self.FK__tblEmploy__Posit__222B06A9" FromRole="tblEmployee" ToRole="tblPosition" />
-          <NavigationProperty Name="tblSector" Relationship="Self.FK__tblEmploy__Secto__2136E270" FromRole="tblEmployee" ToRole="tblSector" />
-          <NavigationProperty Name="tblManager" Relationship="Self.FK__tblEmploy__Super__24134F1B" FromRole="tblEmployee" ToRole="tblManager" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblEmploy__UserI__2042BE37" FromRole="tblEmployee" ToRole="tblUser" />
+          <NavigationProperty Name="tblPosition" Relationship="Self.FK__tblEmploy__Posit__68BD7F23" FromRole="tblEmployee" ToRole="tblPosition" />
+          <NavigationProperty Name="tblSector" Relationship="Self.FK__tblEmploy__Secto__67C95AEA" FromRole="tblEmployee" ToRole="tblSector" />
+          <NavigationProperty Name="tblManager" Relationship="Self.FK__tblEmploy__Super__6AA5C795" FromRole="tblEmployee" ToRole="tblManager" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblEmploy__UserI__66D536B1" FromRole="tblEmployee" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblManager">
           <Key>
@@ -512,10 +510,10 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="NumberOfSuccessfulProjects" Type="Int32" />
           <Property Name="Salary" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="OfficeNumber" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Super__24134F1B" FromRole="tblManager" ToRole="tblEmployee" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblManage__UserI__1A89E4E1" FromRole="tblManager" ToRole="tblUser" />
-          <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__Contr__28D80438" FromRole="tblManager" ToRole="tblProject" />
-          <NavigationProperty Name="tblProjects1" Relationship="Self.FK__tblProjec__Leade__29CC2871" FromRole="tblManager" ToRole="tblProject" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Super__6AA5C795" FromRole="tblManager" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblManage__UserI__611C5D5B" FromRole="tblManager" ToRole="tblUser" />
+          <NavigationProperty Name="tblProjects" Relationship="Self.FK__tblProjec__Contr__6F6A7CB2" FromRole="tblManager" ToRole="tblProject" />
+          <NavigationProperty Name="tblProjects1" Relationship="Self.FK__tblProjec__Leade__705EA0EB" FromRole="tblManager" ToRole="tblProject" />
         </EntityType>
         <EntityType Name="tblPosition">
           <Key>
@@ -524,7 +522,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="PositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PositionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Posit__222B06A9" FromRole="tblPosition" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Posit__68BD7F23" FromRole="tblPosition" ToRole="tblEmployee" />
         </EntityType>
         <EntityType Name="tblProject">
           <Key>
@@ -541,8 +539,8 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="HourlyRate" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="Realization" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="LeaderId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblManager" Relationship="Self.FK__tblProjec__Contr__28D80438" FromRole="tblProject" ToRole="tblManager" />
-          <NavigationProperty Name="tblManager1" Relationship="Self.FK__tblProjec__Leade__29CC2871" FromRole="tblProject" ToRole="tblManager" />
+          <NavigationProperty Name="tblManager" Relationship="Self.FK__tblProjec__Contr__6F6A7CB2" FromRole="tblProject" ToRole="tblManager" />
+          <NavigationProperty Name="tblManager1" Relationship="Self.FK__tblProjec__Leade__705EA0EB" FromRole="tblProject" ToRole="tblManager" />
         </EntityType>
         <EntityType Name="tblSector">
           <Key>
@@ -551,7 +549,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="SectorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SectorDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Secto__2136E270" FromRole="tblSector" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Secto__67C95AEA" FromRole="tblSector" ToRole="tblEmployee" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -566,9 +564,9 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="MarriageStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblAdministrators" Relationship="Self.FK__tblAdmini__UserI__12E8C319" FromRole="tblUser" ToRole="tblAdministrator" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__UserI__2042BE37" FromRole="tblUser" ToRole="tblEmployee" />
-          <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__1A89E4E1" FromRole="tblUser" ToRole="tblManager" />
+          <NavigationProperty Name="tblAdministrators" Relationship="Self.FK__tblAdmini__UserI__597B3B93" FromRole="tblUser" ToRole="tblAdministrator" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__UserI__66D536B1" FromRole="tblUser" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__611C5D5B" FromRole="tblUser" ToRole="tblManager" />
         </EntityType>
         <EntityType Name="vwAdministrator">
           <Key>
@@ -611,8 +609,6 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             <PropertyRef Name="Password" />
             <PropertyRef Name="EmployeeId" />
             <PropertyRef Name="EducationDegree" />
-            <PropertyRef Name="PositionName" />
-            <PropertyRef Name="PositionDescription" />
             <PropertyRef Name="SectorName" />
             <PropertyRef Name="SectorId" />
           </Key>
@@ -630,8 +626,8 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="WorkExperience" Type="Int32" />
-          <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PositionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PositionDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="SectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SectorDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="SectorId" Type="Int32" Nullable="false" />
@@ -714,7 +710,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <Property Name="SectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SectorDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__tblAdmini__UserI__12E8C319">
+        <Association Name="FK__tblAdmini__UserI__597B3B93">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblAdministrator" Type="Self.tblAdministrator" Multiplicity="*" />
           <ReferentialConstraint>
@@ -726,7 +722,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Posit__222B06A9">
+        <Association Name="FK__tblEmploy__Posit__68BD7F23">
           <End Role="tblPosition" Type="Self.tblPosition" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -738,7 +734,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Secto__2136E270">
+        <Association Name="FK__tblEmploy__Secto__67C95AEA">
           <End Role="tblSector" Type="Self.tblSector" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -750,7 +746,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__Super__24134F1B">
+        <Association Name="FK__tblEmploy__Super__6AA5C795">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -762,7 +758,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblEmploy__UserI__2042BE37">
+        <Association Name="FK__tblEmploy__UserI__66D536B1">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -774,7 +770,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblManage__UserI__1A89E4E1">
+        <Association Name="FK__tblManage__UserI__611C5D5B">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -786,7 +782,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjec__Contr__28D80438">
+        <Association Name="FK__tblProjec__Contr__6F6A7CB2">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -798,7 +794,7 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblProjec__Leade__29CC2871">
+        <Association Name="FK__tblProjec__Leade__705EA0EB">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="1" />
           <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
           <ReferentialConstraint>
@@ -824,35 +820,35 @@ warning 6002: The table/view 'EmployeeManagement.dbo.vwSector' does not have a p
           <EntitySet Name="vwPositions" EntityType="Self.vwPosition" />
           <EntitySet Name="vwProjects" EntityType="Self.vwProject" />
           <EntitySet Name="vwSectors" EntityType="Self.vwSector" />
-          <AssociationSet Name="FK__tblAdmini__UserI__12E8C319" Association="Self.FK__tblAdmini__UserI__12E8C319">
+          <AssociationSet Name="FK__tblAdmini__UserI__597B3B93" Association="Self.FK__tblAdmini__UserI__597B3B93">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblAdministrator" EntitySet="tblAdministrators" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Posit__222B06A9" Association="Self.FK__tblEmploy__Posit__222B06A9">
+          <AssociationSet Name="FK__tblEmploy__Posit__68BD7F23" Association="Self.FK__tblEmploy__Posit__68BD7F23">
             <End Role="tblPosition" EntitySet="tblPositions" />
             <End Role="tblEmployee" EntitySet="tblEmployees" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Secto__2136E270" Association="Self.FK__tblEmploy__Secto__2136E270">
+          <AssociationSet Name="FK__tblEmploy__Secto__67C95AEA" Association="Self.FK__tblEmploy__Secto__67C95AEA">
             <End Role="tblSector" EntitySet="tblSectors" />
             <End Role="tblEmployee" EntitySet="tblEmployees" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__Super__24134F1B" Association="Self.FK__tblEmploy__Super__24134F1B">
+          <AssociationSet Name="FK__tblEmploy__Super__6AA5C795" Association="Self.FK__tblEmploy__Super__6AA5C795">
             <End Role="tblManager" EntitySet="tblManagers" />
             <End Role="tblEmployee" EntitySet="tblEmployees" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblEmploy__UserI__2042BE37" Association="Self.FK__tblEmploy__UserI__2042BE37">
+          <AssociationSet Name="FK__tblEmploy__UserI__66D536B1" Association="Self.FK__tblEmploy__UserI__66D536B1">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblEmployee" EntitySet="tblEmployees" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblManage__UserI__1A89E4E1" Association="Self.FK__tblManage__UserI__1A89E4E1">
+          <AssociationSet Name="FK__tblManage__UserI__611C5D5B" Association="Self.FK__tblManage__UserI__611C5D5B">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblManager" EntitySet="tblManagers" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjec__Contr__28D80438" Association="Self.FK__tblProjec__Contr__28D80438">
+          <AssociationSet Name="FK__tblProjec__Contr__6F6A7CB2" Association="Self.FK__tblProjec__Contr__6F6A7CB2">
             <End Role="tblManager" EntitySet="tblManagers" />
             <End Role="tblProject" EntitySet="tblProjects" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblProjec__Leade__29CC2871" Association="Self.FK__tblProjec__Leade__29CC2871">
+          <AssociationSet Name="FK__tblProjec__Leade__705EA0EB" Association="Self.FK__tblProjec__Leade__705EA0EB">
             <End Role="tblManager" EntitySet="tblManagers" />
             <End Role="tblProject" EntitySet="tblProjects" />
           </AssociationSet>
